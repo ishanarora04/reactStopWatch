@@ -1,0 +1,31 @@
+.blink{
+    animation: blinker 1s linear infinite;
+  }
+  
+  @keyframes blinker {
+    50% {
+      opacity: 0;
+    }
+}
+
+.default{
+  font-size: 8em;
+  margin: 4px;
+}
+
+.red{
+    color: red;
+    font-size: 8em;
+    margin: 4px;
+}
+
+
+.flowLeft{
+    display: inline-block;
+    vertical-align:top;
+}
+.pause{
+  border-radius: 50%;
+    width: 84px;
+    height: 84px;
+}
