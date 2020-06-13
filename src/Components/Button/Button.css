@@ -22,4 +22,10 @@ button:hover {
 button:active {
   background-color: #9e9e9e;
   transform: translateY(4px);
+  outline: none;
+  border: 0
+}
+
+button:focus{
+  outline: none
 }
