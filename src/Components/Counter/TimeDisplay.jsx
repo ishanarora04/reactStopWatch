@@ -12,10 +12,20 @@ export default class TimeDisplay extends React.Component {
     if (seconds < 10) {
       seconds = "0" + seconds;
     }
-    let minutes = parseInt(this.props.time / 60);
+
+    let minutes = parseInt((this.props.time / 60) % 60);
     if (minutes < 10) {
       minutes = "0" + minutes;
     }
+
+    let hours = parseInt(this.props.time / 3600);
+    if (hours > 0) {
+      if (hours < 10) {
+        hours = "0" + hours;
+      }
+      return hours + ":" + minutes + ":" + seconds;
+    }
+
     return minutes + ":" + seconds;
   };
 

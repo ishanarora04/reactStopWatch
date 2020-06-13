@@ -2,7 +2,7 @@ import React from "react";
 import Button from "../Button";
 import TimeForm from "./TimeForm";
 import TimeDisplay from "./TimeDisplay";
-import './Counter.css';
+import "./Counter.css";
 
 export default class Counter extends React.Component {
   constructor(props) {
@@ -32,14 +32,18 @@ export default class Counter extends React.Component {
     });
   };
 
-  reset = () => {
+  reset = async () => {
     if (this.state.isActive) {
-      this.clearTimer();
-      this.setState({
-        leftTime: 0,
-        isPaused: false,
-        isActive: false,
-      });
+      this.setState(
+        {
+          leftTime: 0,
+          isPaused: false,
+          isActive: false,
+        },
+        () => {
+          this.clearTimer();
+        }
+      );
     }
   };
 
@@ -100,7 +104,7 @@ export default class Counter extends React.Component {
         () => {
           clearInterval(timerId);
         }
-      );
+    );
     }
   };
 
@@ -118,6 +122,8 @@ export default class Counter extends React.Component {
   };
 
   render() {
+
+    
     return (
       <div className="flex-column container">
         <TimeForm
@@ -135,18 +141,18 @@ export default class Counter extends React.Component {
           </div>
         )}
 
-      <div className="flex-row text-center">
-        <TimeDisplay
-          time={this.state.leftTime}
-          isActive={this.state.isActive}
-        />
+        <div className="flex-row text-center">
+          <TimeDisplay
+            time={this.state.leftTime}
+            isActive={this.state.isActive}
+          />
 
-        <Button
-          className="pause"
-          onClick={this.state.isPaused ? this.resume : this.pause}
-          label={this.state.isPaused ? "RESUME" : "PAUSE"}
-        ></Button>
-      </div>
+          <Button
+            className="pause"
+            onClick={this.state.isPaused ? this.resume : this.pause}
+            label={this.state.isPaused ? "RESUME" : "PAUSE"}
+          ></Button>
+        </div>
 
         <div className="flex-row center">
           <Button
