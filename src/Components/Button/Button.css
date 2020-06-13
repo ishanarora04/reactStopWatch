@@ -9,8 +9,6 @@ button {
   float: left;
   box-sizing: border-box;
   font-family: "Roboto", sans-serif;
-  /* height: 75px; */
-  /* width: 150px; */
   min-width: 84px;
   cursor: pointer;
   text-align: center;
